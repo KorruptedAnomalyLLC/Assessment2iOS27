@@ -12,13 +12,13 @@
         <!--Root View Controller-->
         <scene sceneID="4gd-u3-Dio">
             <objects>
-                <tableViewController id="wW5-Tu-0hG" sceneMemberID="viewController">
+                <tableViewController id="wW5-Tu-0hG" customClass="ItemListTableViewController" customModule="Assessment2iOS27" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DSB-GW-ggd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="50" id="PRL-R3-8Lh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="50" id="PRL-R3-8Lh" customClass="ButtonTableViewCell" customModule="Assessment2iOS27" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PRL-R3-8Lh" id="FZl-gS-1dz">
@@ -50,15 +50,22 @@
                                         <constraint firstItem="gIE-yK-3Ow" firstAttribute="centerY" secondItem="FZl-gS-1dz" secondAttribute="centerY" id="wYu-to-l8o"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="completeButton" destination="gIE-yK-3Ow" id="wac-ZL-AfJ"/>
+                                    <outlet property="primaryLabel" destination="2ig-fg-66e" id="q1X-8X-Uq3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="wW5-Tu-0hG" id="fdS-5L-9ER"/>
-                            <outlet property="delegate" destination="wW5-Tu-0hG" id="un0-G5-S5B"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="8xJ-ke-2NN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CtH-pp-wdh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CtH-pp-wdh">
+                            <connections>
+                                <action selector="buttonTapped:" destination="rJ7-Ed-AhL" id="Nhy-1h-EVu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTg-jq-yb6" userLabel="First Responder" sceneMemberID="firstResponder"/>

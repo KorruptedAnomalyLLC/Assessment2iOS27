@@ -9,20 +9,32 @@
 import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
-
-  
     
-        
+    
+    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var primaryLabel: UILabel!
+    
+    
+    weak var delegate: ButtonTableViewCellDelegate?
+    
+    fileprivate func updateButton(_ isComplete: Bool) {
+        let imageName = isComplete ? "complete" : "incomplete"
+        completeButton.setImage(UIImage(named: imageName), for: .normal)
+    }
+    
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.buttonCellButtonTapped(self)
     }
-    
-    
-    
-    var delegate: ButtonTableViewCell?
-    
 }
 
-protocol ButtonTableViewCellDelegate {
+extension ButtonTableViewCell {
+    func update(withItem item: Item) {
+        
+        primaryLabel = item.name
+        updateButton(item.isComplete)
+    }
+}
+
+protocol ButtonTableViewCellDelegate: class {
     func buttonCellButtonTapped(_ sender: ButtonTableViewCell)
 }
