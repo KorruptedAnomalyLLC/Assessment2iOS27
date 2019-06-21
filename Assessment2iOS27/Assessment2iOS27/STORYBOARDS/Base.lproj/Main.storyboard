@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJa-ps-Xke">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="4gd-u3-Dio">
+            <objects>
+                <tableViewController id="wW5-Tu-0hG" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DSB-GW-ggd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="50" id="PRL-R3-8Lh">
+                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PRL-R3-8Lh" id="FZl-gS-1dz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(shopping item)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ig-fg-66e">
+                                            <rect key="frame" x="20" y="10" width="134.5" height="29.5"/>
+                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIE-yK-3Ow">
+                                            <rect key="frame" x="354" y="5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="IHJ-3p-Q1W"/>
+                                                <constraint firstAttribute="width" secondItem="gIE-yK-3Ow" secondAttribute="height" multiplier="1:1" id="PQS-Zb-pRg"/>
+                                            </constraints>
+                                            <state key="normal" image="incompleteCheckBox"/>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="rJ7-Ed-AhL" eventType="touchUpInside" id="dod-tC-8JD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gIE-yK-3Ow" secondAttribute="trailing" constant="20" id="Go6-kz-neQ"/>
+                                        <constraint firstItem="2ig-fg-66e" firstAttribute="centerY" secondItem="FZl-gS-1dz" secondAttribute="centerY" id="P4v-FQ-MsM"/>
+                                        <constraint firstItem="2ig-fg-66e" firstAttribute="leading" secondItem="FZl-gS-1dz" secondAttribute="leadingMargin" id="bhR-eq-zFt"/>
+                                        <constraint firstItem="gIE-yK-3Ow" firstAttribute="centerY" secondItem="FZl-gS-1dz" secondAttribute="centerY" id="wYu-to-l8o"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wW5-Tu-0hG" id="fdS-5L-9ER"/>
+                            <outlet property="delegate" destination="wW5-Tu-0hG" id="un0-G5-S5B"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="8xJ-ke-2NN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CtH-pp-wdh"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTg-jq-yb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rJ7-Ed-AhL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-186.95652173913044" y="29.464285714285712"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ggi-fZ-Rbw">
+            <objects>
+                <navigationController id="KJa-ps-Xke" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9gA-R0-dVH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wW5-Tu-0hG" kind="relationship" relationship="rootViewController" id="wrV-mG-R9r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eFh-wT-xup" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1104" y="30"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="incompleteCheckBox" width="512" height="512"/>
+    </resources>
 </document>
